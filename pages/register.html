@@ -30,44 +30,59 @@
 							d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
 						/>
 					</svg>
+					<h4>Student Registration System</h4>
 				</div>
-				<div class="h4">Student Registration System</div>
 				<div class="bottom">
 					<a href="../index.html">You have an account ?</a>
 				</div>
 			</div>
 			<div class="right">
 				<div class="heading">
-					<h1>Login Account</h1>
-					<p>Sign in to continue your progress</p>
+					<h1>Register Account</h1>
+					<p>Sign up to continue your progress</p>
 				</div>
-				<div class="input-box">
-					<label for="name">Name</label>
-					<input type="text" id="name" placeholder="Please enter your name" />
+				<div class="register-inputs">
+					<div class="nameContact">
+						<label for="name">Name</label>
+						<input type="text" id="name" placeholder="Enter your name" />
+						<label for="number">Number</label>
+						<input type="number" id="contact" placeholder="Enter your number" />
+					</div>
+					<div class="dateCourse">
+						<label for="date">DOB</label>
+						<input type="date" id="date" placeholder="Enter your name" />
+						<label for="course">Course</label>
+						<select name="course" id="course">
+							<option disabled selected>Select Course</option>
+							<option value="IT Essential">IT Essential</option>
+							<option value="Generative AI">Generative AI</option>
+							<option value="Digital Marketing">Generative AI</option>
+							<option value="Amazon FBA">Amazon FBA</option>
+							<option value="Web Development">Web Development</option>
+						</select>
+					</div>
+					<div class="emailPassword">
+						<label for="studentEmailId">Email</label>
+						<input
+							type="email"
+							id="email"
+							name="studentEmailId"
+							placeholder="Enter your email"
+						/>
+						<label for="password">Password</label>
+						<input
+							type="password"
+							id="password"
+							name="password"
+							placeholder="Enter your password"
+						/>
+					</div>
 					<label for="address">Address</label>
 					<textarea
 						style="resize: none"
 						id="address"
 						placeholder="Please enter your address"
 					></textarea>
-					<label for="studentEmailId">Student Email ID</label>
-					<input
-						type="email"
-						id="email"
-						name="studentEmailId"
-						placeholder="Enter your email id"
-					/>
-					<label for="password">Password</label>
-					<input
-						type="password"
-						id="password"
-						name="password"
-						placeholder="Enter your password"
-					/>
-				</div>
-				<div class="show-password">
-					<input type="checkbox" id="show-password" />
-					<label for="show-password">Show Password</label>
 				</div>
 				<div class="regisBtn">
 					<button id="regisBtn">Register</button>
