@@ -17,47 +17,31 @@ let email = document.getElementById("email");
 let password = document.getElementById("password");
 let registerBtn = document.getElementById("regisBtn");
 
-// console.log(email, password, registerBtn);
-
 registerBtn.addEventListener("click", async () => {
-	// console.log(email.value);
-	// console.log(password.value);
-	// console.log(registerBtn);
-
 	const auth = getAuth();
 	createUserWithEmailAndPassword(auth, email.value, password.value)
-		.then((userCredential) => {
+		.then(async (userCredential) => {
 			const user = userCredential.user;
-			alert("You are registered");
+			try {
+				const docRef = await addDoc(collection(db, "users"), {
+					userName: studentName.value,
+					userDOB: dateOfBirth.value,
+					userCourse: course.value,
+					userContact: contactNum.value,
+					userEmail: email.value,
+					userAddress: address.value,
+					userPassword: password.value,
+				});
+				window.location.reload();
+				console.log("Document written with ID: ", docRef.id);
+				alert("you are registered");
+			} catch (e) {
+				console.error("Error adding document: ", e);
+			}
 		})
 		.catch((error) => {
 			const errorCode = error.code;
 			const errorMessage = error.message;
 			alert(errorCode + "\n" + errorMessage);
 		});
-
-	try {
-		const docRef = await addDoc(collection(db, "users"), {
-			userName: studentName.value,
-			userDOB: dateOfBirth.value,
-			userCourse: course.value,
-			userContact: contactNum.value,
-			userEmail: email.value,
-			userAddress: address.value,
-			userPassword: password.value,
-		});
-		console.log("Document written with ID: ", docRef.id);
-		alert("you are registered"); 
-		console.log(addDoc);
-		
-	} catch (e) {
-		console.error("Error adding document: ", e);
-	}
-	studentName.value = "";
-	dateOfBirth.value = "";
-	course.value = "";
-	contactNum.value = "";
-	email.value = "";
-	address.value = "";
-	password.value = "";
 });

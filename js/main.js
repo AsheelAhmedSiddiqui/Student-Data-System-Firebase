@@ -1,5 +1,8 @@
 import { auth, app, db } from "./firebase.mjs";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import {
+	getAuth,
+	signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
 let email = document.getElementById("email");
 let password = document.getElementById("password");
@@ -11,9 +14,7 @@ loginBtn.addEventListener("click", () => {
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
-            alert(user.email);
-            console.log(user);
-            
+			alert(`Hello ${user.email}`);
 			// ...
 		})
 		.catch((error) => {
